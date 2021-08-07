@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-  <meta charset="UTF-8">
+  <meta charset='UTF-8'>
   <title>Weather App</title>
-  <link href="style.css" rel="stylesheet">
-  <script defer src="bundle.js"></script>
+  <link href='style.css' rel='stylesheet'>
+  <script defer src='bundle.js'></script>
 </head>
 <body>
-
+  <div id='container'>
+    <form id='zipCodeForm'>
+      <input id='zipCodeInput' type='number' required placeholder='US Zip Code' autocomplete='off'>
+      <button id='zipCodeSubmitBtn' type='submit'>Search</button>
+    </form>
+  </div>
 </body>
 </html>
