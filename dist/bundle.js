@@ -10,13 +10,23 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/config.js":
+/*!***********************!*\
+  !*** ./src/config.js ***!
+  \***********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({\n  API_KEY: 'c42c3ce00cd6bc460bd80a3cb38e7bbe',\n});\n\n\n//# sourceURL=webpack://weather-app/./src/config.js?");
+
+/***/ }),
+
 /***/ "./src/data.js":
 /*!*********************!*\
   !*** ./src/data.js ***!
   \*********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((() => {\n  const getWeather = (zipCode) => zipCode;\n\n  return { getWeather };\n})());\n\n\n//# sourceURL=webpack://weather-app/./src/data.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./config */ \"./src/config.js\");\n\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((() => {\n  const getRawData = async (zipCode) => {\n    const response = await fetch(\n      `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode},us&units='imperial'&appid=${_config__WEBPACK_IMPORTED_MODULE_0__.default.API_KEY}`,\n      { mode: 'cors' },\n    );\n    const rawData = await response.json();\n    return rawData;\n  };\n\n  const filterRawData = (rawData) => {\n    const filteredData = {};\n    filteredData.rawData = rawData;\n    filteredData.temp = rawData.main.temp;\n    // fill in rest here\n    return filteredData;\n  };\n\n  const getWeather = async (zipCode) => {\n    const rawData = await getRawData(zipCode);\n    const filteredData = filterRawData(rawData);\n    return filteredData;\n  };\n\n  return { getWeather };\n})());\n\n\n//# sourceURL=webpack://weather-app/./src/data.js?");
 
 /***/ }),
 
@@ -36,7 +46,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./data */ \"./src/data.js\");\n/* harmony import */ var _dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dom */ \"./src/dom.js\");\n\n\n\n(() => {\n  const events = () => {\n    const zipCodeForm = document.getElementById('zipCodeForm');\n    const zipCodeInput = document.getElementById('zipCodeInput');\n\n    zipCodeForm.addEventListener('submit', (e) => {\n      e.preventDefault();\n      _dom__WEBPACK_IMPORTED_MODULE_1__.default.displayWeather(_data__WEBPACK_IMPORTED_MODULE_0__.default.getWeather(zipCodeInput.value));\n      zipCodeInput.value = '';\n    });\n  };\n\n  const init = () => {\n    _dom__WEBPACK_IMPORTED_MODULE_1__.default.displayWeather(_data__WEBPACK_IMPORTED_MODULE_0__.default.getWeather('10001'));\n    events();\n  };\n\n  init();\n})();\n\n\n//# sourceURL=webpack://weather-app/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./data */ \"./src/data.js\");\n/* harmony import */ var _dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dom */ \"./src/dom.js\");\n\n\n\n(() => {\n  let submittedOnce = false;\n\n  const events = () => {\n    const zipCodeForm = document.getElementById('zipCodeForm');\n    const zipCodeInput = document.getElementById('zipCodeInput');\n\n    zipCodeForm.addEventListener('submit', async (e) => {\n      submittedOnce = true;\n      e.preventDefault();\n      const newZipCode = zipCodeInput.value;\n      zipCodeInput.value = '';\n      _dom__WEBPACK_IMPORTED_MODULE_1__.default.displayWeather(await _data__WEBPACK_IMPORTED_MODULE_0__.default.getWeather(newZipCode));\n    });\n  };\n\n  const getAndDisplayInitialWeather = async () => {\n    const initialWeatherData = await _data__WEBPACK_IMPORTED_MODULE_0__.default.getWeather('10001');\n    if (!submittedOnce) _dom__WEBPACK_IMPORTED_MODULE_1__.default.displayWeather(initialWeatherData);\n  };\n\n  const init = () => {\n    events();\n    getAndDisplayInitialWeather();\n  };\n\n  init();\n})();\n\n\n//# sourceURL=webpack://weather-app/./src/index.js?");
 
 /***/ })
 
