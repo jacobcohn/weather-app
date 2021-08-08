@@ -11,6 +11,7 @@ import dom from './dom';
     zipCodeForm.addEventListener('submit', async (e) => {
       submittedOnce = true;
       e.preventDefault();
+
       const newZipCode = zipCodeInput.value;
       zipCodeInput.value = '';
       dom.displayWeather(await data.getWeather(newZipCode));
