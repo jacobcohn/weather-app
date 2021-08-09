@@ -8,13 +8,18 @@ import dom from './dom';
     const zipCodeForm = document.getElementById('zipCodeForm');
     const zipCodeInput = document.getElementById('zipCodeInput');
 
-    zipCodeForm.addEventListener('submit', async (e) => {
+    zipCodeForm.addEventListener('submit', async (event) => {
       submittedOnce = true;
-      e.preventDefault();
+      event.preventDefault();
 
       const newZipCode = zipCodeInput.value;
       zipCodeInput.value = '';
-      dom.displayWeather(await data.getWeather(newZipCode));
+
+      try {
+        dom.displayWeather(await data.getWeather(newZipCode));
+      } catch (error) {
+        dom.displayError();
+      }
     });
   };
 

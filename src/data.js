@@ -6,6 +6,7 @@ export default (() => {
       `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode},us&units=imperial&appid=${config.API_KEY}`,
       { mode: 'cors' },
     );
+    if (!response.ok) throw Error;
     const rawData = await response.json();
     return rawData;
   };

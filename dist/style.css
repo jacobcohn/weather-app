@@ -1,9 +1,70 @@
 body {
+  background: #FBFFFE;
+  color: #0A0A0F;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+button {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#weatherInformationDiv {
+  background: #0981D7;
+  width: 600px;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 5px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#zipCodeFormDiv {
+  width: 60%;
+  height: 40px;
+}
+
+#zipCodeForm {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+}
+
 #zipCodeInput {
-  width: 100px;
+  grid-area: 1 / 1 / 2 / 2;
+  font-size: 20px;
+  background: #FBFFFE;
+  padding-left: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+#zipCodeInput::placeholder {
+  color: rgba(10, 10, 15, 0.65);
+}
+
+#zipCodeSubmitBtn {
+  grid-area: 1 / 2 / 2 / 3;
+  font-size: 20px;
+  background: rgba(206, 227, 242, 1);
+  color: #0A0A0F;
+  border-radius: 5px;
+  border: none;
+}
+
+#zipCodeSubmitBtn:hover {
+  background: rgba(206, 227, 242, 0.9);
 }
 
 

@@ -3,5 +3,9 @@ export default (() => {
     console.log(data);
   };
 
-  return { displayWeather };
+  const displayError = () => {
+    console.log('Please Enter A Valid US Zip Code.');
+  };
+
+  return { displayWeather, displayError };
 })();
