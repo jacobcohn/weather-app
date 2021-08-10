@@ -22,18 +22,18 @@
       <div id='mainInfoDiv' class='notVisible'>
         <div id='leftMainInfoDiv' class='sideMainInfoDiv'>
           <div id='cityDiv'>
-            <p id='cityContent'>Chicago</p>
+            <p id='cityContent' class='mainInfoContent'></p>
           </div>
           <div id='descriptionDiv'>
-            <p id='descriptionContent'>Broken Clouds</p>
+            <p id='descriptionContent' class='mainInfoContent'></p>
           </div>
         </div>
         <div id='rightMainInfoDiv' class='sideMainInfoDiv'>
           <div id='tempDiv'>
-            <p id='tempContent'>78°</p>
+            <p id='tempContent' class='mainInfoContent'></p>
           </div>
           <div id='feelsLikeDiv'>
-            <p id='feelsLikeContent'>Feels Like 77°</p>
+            <p id='feelsLikeContent' class='mainInfoContent'></p>
           </div>
         </div>
       </div>
@@ -43,7 +43,7 @@
             <p id='shortsOrPantsQuestionContent' class='questionContent'>Shorts or Pants?</p>
           </div>
           <div id='shortsOrPantsAnswerDiv' class='answerDiv'>
-            <p id='shortsOrPantsAnswerContent' class='answerContent'>It is currently 78.95° outside. Shorts are recommended.</p>
+            <p id='shortsOrPantsAnswerContent' class='answerContent'></p>
           </div>
         </div>
         <div id='shirtSweatshirtOrCoatSentenceDiv' class='sentenceDiv'>
@@ -51,7 +51,7 @@
             <p id='shirtSweatshirtOrCoatQuestionContent' class='questionContent'>Shirt, Sweatshirt, or Coat?</p>
           </div>
           <div id='shirtSweatshirtOrCoatAnswerDiv' class='answerDiv'>
-            <p id='shirtSweatshirtOrCoatAnswerContent' class='answerContent'>It is currently 78.95° outside. A shirt is recommended.</p>
+            <p id='shirtSweatshirtOrCoatAnswerContent' class='answerContent'></p>
           </div>
         </div>
         <div id='whatElseSentenceDiv' class='sentenceDiv'>
@@ -59,10 +59,17 @@
             <p id='whatElseQuestionContent' class='questionContent'>What Else?</p>
           </div>
           <div id='whatElseAnswerDiv' class='answerDiv'>
-            <p id='whatElseAnswerContent' class='answerContent'>The sky is clear. There is no need to bring anything else.</p>
+            <p id='whatElseAnswerContent' class='answerContent'></p>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div id='errorModalBG' class="notVisible">
+    <div id='errorModalDiv'>
+      <p id='errorModalContent'></p>
+      <button id='errorModalExitBtn'>Exit</button>
     </div>
   </div>
 </body>

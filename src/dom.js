@@ -63,9 +63,20 @@ export default (() => {
     changeTempDisplays(data);
   };
 
-  const displayError = (message) => {
-    console.log(message);
+  const switchModalOnOrOff = () => {
+    const errorModalBG = document.getElementById('errorModalBG');
+    errorModalBG.classList.toggle('visible');
+    errorModalBG.classList.toggle('notVisible');
   };
 
-  return { hideMainDivs, displayWeather, tempSwitch, displayError };
+  const changeErrorMessage = (message) => {
+    document.getElementById('errorModalContent').textContent = message;
+  };
+
+  const displayError = (message) => {
+    changeErrorMessage(message);
+    switchModalOnOrOff();
+  };
+
+  return { hideMainDivs, displayWeather, tempSwitch, switchModalOnOrOff, displayError };
 })();

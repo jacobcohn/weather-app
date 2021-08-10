@@ -21,30 +21,34 @@ import dom from './dom';
         currentData = await data.getWeather(newZipCode);
         dom.displayWeather(currentData);
       } catch (error) {
-        if (submittedOnce) {
-          dom.displayError('Please Enter A Valid US Zip Code');
-        } else {
-          dom.displayError('Please Try Again Later. Weather App Is Not Currently Working.');
-        }
+        dom.displayError('Please Enter A Valid US Zip Code');
         dom.displayWeather(currentData);
       }
     });
   };
 
-  const switchEvent = () => {
-    const switchDiv = document.getElementById('tempSwitchDiv');
-    switchDiv.addEventListener('click', () => dom.tempSwitch(currentData));
+  const switchUnitsEvent = () => {
+    document.getElementById('tempSwitchDiv').addEventListener('click', () => dom.tempSwitch(currentData));
+  };
+
+  const exitModalEvent = () => {
+    document.getElementById('errorModalExitBtn').addEventListener('click', () => dom.switchModalOnOrOff());
   };
 
   const getAndDisplayInitialWeather = async () => {
-    const initialWeatherData = await data.getWeather('10001');
-    currentData = initialWeatherData;
-    if (!submittedOnce) dom.displayWeather(initialWeatherData);
+    try {
+      const initialWeatherData = await data.getWeather('10001');
+      currentData = initialWeatherData;
+      if (!submittedOnce) dom.displayWeather(initialWeatherData);
+    } catch (error) {
+      dom.displayError('The Weather App is Not Currently Working. Please Try Again Later.');
+    }
   };
 
   const init = () => {
     searchEvent();
-    switchEvent();
+    switchUnitsEvent();
+    exitModalEvent();
     getAndDisplayInitialWeather();
   };
 
