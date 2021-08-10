@@ -9,13 +9,17 @@
 <body>
   <div id='container'>
     <div id='weatherInfoDiv'>
+      <div id='tempSwitchDiv'>
+        <p id='celciusOption' class='switchOption visible'>°C</p>
+        <p id='fahrenheitOption' class='switchOption notVisible'>°F</p>
+      </div>
       <div id='zipCodeFormDiv'>
         <form id='zipCodeForm'>
           <input id='zipCodeInput' type='number' placeholder='US Zip Code...' autocomplete='off'>
           <button id='zipCodeSubmitBtn' type='submit'>Search</button>
         </form>
       </div>
-      <div id='mainInfoDiv' class='visible'>
+      <div id='mainInfoDiv' class='notVisible'>
         <div id='leftMainInfoDiv' class='sideMainInfoDiv'>
           <div id='cityDiv'>
             <p id='cityContent'>Chicago</p>
@@ -33,7 +37,7 @@
           </div>
         </div>
       </div>
-      <div id='allSentencesDiv' class='visible'>
+      <div id='allSentencesDiv' class='notVisible'>
         <div id='shortsOrPantsSentenceDiv' class='sentenceDiv'>
           <div id='shortsOrPantsQuestionDiv' class='questionDiv'>
             <p id='shortsOrPantsQuestionContent' class='questionContent'>Shorts or Pants?</p>

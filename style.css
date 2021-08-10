@@ -17,14 +17,37 @@ button {
 }
 
 #weatherInfoDiv {
+  position: relative;
   background: #0981D7;
   width: 600px;
   padding: 20px;
   margin: 20px;
-  border-radius: 5px; 
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+#tempSwitchDiv {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(206, 227, 242, 1);
+  color: #0A0A0F;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: default;
+}
+
+#tempSwitchDiv:hover {
+  background: rgba(206, 227, 242, 0.9);
+}
+
+.switchOption {
+  position: relative;
+  right: 3px;
+  font-size: 26px;
 }
 
 #zipCodeFormDiv {
