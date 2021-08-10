@@ -67,6 +67,72 @@ button {
   background: rgba(206, 227, 242, 0.9);
 }
 
+.visible {
+  display: grid;
+}
+
+.notVisible {
+  display: none;
+}
+
+#mainInfoDiv {
+  width: 100%;
+  margin: 20px 0px 30px 0px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.sideMainInfoDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  margin: 5px;
+}
+
+#cityContent {
+  font-size: 60px;
+}
+
+#descriptionContent {
+  font-size: 25px;
+}
+
+#tempContent {
+  font-size: 80px;
+  position: relative;
+  left: 15px;
+}
+
+#feelsLikeContent {
+  font-size: 22px;
+}
+
+#allSentencesDiv {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.sentenceDiv {
+  background: #CEE3F2;
+  color: #0A0A0F;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.questionContent {
+  font-size: 21px;
+  text-align: center;
+}
+
+.answerContent {
+  font-size: 17px;
+}
+
 
 /* No arrows on input type number for Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
