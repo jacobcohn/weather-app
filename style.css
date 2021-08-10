@@ -115,6 +115,10 @@ p {
   margin: 5px;
 }
 
+.mainInfoContent {
+  text-align: center;
+}
+
 #cityContent {
   font-size: 60px;
 }
@@ -154,6 +158,45 @@ p {
 
 .answerContent {
   font-size: 17px;
+}
+
+#errorModalBG {
+  background: rgba(206, 227, 242, 0.2);
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100vw;
+  height: 100vh;
+}
+
+#errorModalDiv {
+  background: #0A0A0F;
+  max-width: 500px;
+  padding: 20px;
+  border-radius: 5px;
+  align-self: center;
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#errorModalContent {
+  font-size: 50px;
+  text-align: center;
+  margin: 10px;
+}
+
+#errorModalExitBtn {
+  background: rgba(227, 100, 113, 1);
+  color: #FBFFFE;
+  font-size: 40px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+#errorModalExitBtn:hover {
+  background: rgba(227, 100, 113, 0.9);
 }
 
 
