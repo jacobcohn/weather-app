@@ -1,11 +1,18 @@
 export default (() => {
+  const loadingPhase = () => {
+    // notVisible
+  };
+
   const displayWeather = (data) => {
     console.log(data);
+    // visible
   };
 
   const displayError = (message) => {
     console.log(message);
   };
 
-  return { displayWeather, displayError };
+  const changeTempSwitch = () => {};
+
+  return { loadingPhase, displayWeather, displayError, changeTempSwitch };
 })();

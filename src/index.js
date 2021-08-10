@@ -1,35 +1,41 @@
 import data from './data';
 import dom from './dom';
 
-/* 
-displayNone for when loading
-currentData so it can change from F to C
-display last search if current search is error?
-*/
-
 (() => {
   let submittedOnce = false;
+  let currentData = null;
 
-  const events = () => {
+  const searchEvent = () => {
     const zipCodeForm = document.getElementById('zipCodeForm');
     const zipCodeInput = document.getElementById('zipCodeInput');
 
     zipCodeForm.addEventListener('submit', async (event) => {
-      submittedOnce = true;
       event.preventDefault();
+      submittedOnce = true;
+      dom.loadingPhase();
 
       const newZipCode = zipCodeInput.value;
       zipCodeInput.value = '';
 
       try {
-        dom.displayWeather(await data.getWeather(newZipCode));
+        currentData = await data.getWeather(newZipCode);
+        dom.displayWeather(currentData);
       } catch (error) {
         if (submittedOnce) {
           dom.displayError('Please Enter A Valid US Zip Code');
         } else {
           dom.displayError('Please Try Again Later. Weather App Is Not Currently Working.');
         }
+        dom.displayWeather(currentData);
       }
+    });
+  };
+
+  const switchEvent = () => {
+    const switchDiv = document.getElementById('tempSwitchDiv');
+    switchDiv.addEventListener('click', () => {
+      dom.changeTempSwitch();
+      if (currentData) dom.displayWeather(currentData);
     });
   };
 
@@ -39,7 +45,8 @@ display last search if current search is error?
   };
 
   const init = () => {
-    events();
+    searchEvent();
+    switchEvent();
     getAndDisplayInitialWeather();
   };
 
