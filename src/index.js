@@ -1,6 +1,12 @@
 import data from './data';
 import dom from './dom';
 
+/* 
+displayNone for when loading
+currentData so it can change from F to C
+display last search if current search is error?
+*/
+
 (() => {
   let submittedOnce = false;
 
