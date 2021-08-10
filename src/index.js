@@ -12,7 +12,7 @@ import dom from './dom';
     zipCodeForm.addEventListener('submit', async (event) => {
       event.preventDefault();
       submittedOnce = true;
-      dom.loadingPhase();
+      dom.hideMainDivs();
 
       const newZipCode = zipCodeInput.value;
       zipCodeInput.value = '';
@@ -33,14 +33,12 @@ import dom from './dom';
 
   const switchEvent = () => {
     const switchDiv = document.getElementById('tempSwitchDiv');
-    switchDiv.addEventListener('click', () => {
-      dom.changeTempSwitch();
-      if (currentData) dom.displayWeather(currentData);
-    });
+    switchDiv.addEventListener('click', () => dom.tempSwitch(currentData));
   };
 
   const getAndDisplayInitialWeather = async () => {
     const initialWeatherData = await data.getWeather('10001');
+    currentData = initialWeatherData;
     if (!submittedOnce) dom.displayWeather(initialWeatherData);
   };
 

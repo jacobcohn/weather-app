@@ -53,26 +53,29 @@ export default (() => {
       shirtSweatshirtOrCoat: {},
     };
 
+    const fahrenheitInFormat = `${Math.round(fahrenheit)}°`;
+    const celciusInFormat = `${Math.round(celcius)}°`;
+
     if (fahrenheit > 59) {
-      Sentences.shortsOrPants.f = `It is currently ${fahrenheit}° outside. Shorts are recommended.`;
-      Sentences.shortsOrPants.c = `It is currently ${celcius}° outside. Shorts are recommended.`;
-      Sentences.shirtSweatshirtOrCoat.f = `It is currently ${fahrenheit}° outside. A shirt is recommended.`;
-      Sentences.shirtSweatshirtOrCoat.c = `It is currently ${celcius}° outside. A shirt is recommended.`;
+      Sentences.shortsOrPants.f = `It is currently ${fahrenheitInFormat} outside. Shorts are recommended.`;
+      Sentences.shortsOrPants.c = `It is currently ${celciusInFormat} outside. Shorts are recommended.`;
+      Sentences.shirtSweatshirtOrCoat.f = `It is currently ${fahrenheitInFormat} outside. A shirt is recommended.`;
+      Sentences.shirtSweatshirtOrCoat.c = `It is currently ${celciusInFormat} outside. A shirt is recommended.`;
     } else {
-      Sentences.shortsOrPants.f = `It is currently ${fahrenheit}° outside. Pants are recommended.`;
-      Sentences.shortsOrPants.c = `It is currently ${celcius}° outside. Pants are recommended.`;
+      Sentences.shortsOrPants.f = `It is currently ${fahrenheitInFormat} outside. Pants are recommended.`;
+      Sentences.shortsOrPants.c = `It is currently ${celciusInFormat} outside. Pants are recommended.`;
       if (fahrenheit > 32) {
-        Sentences.shirtSweatshirtOrCoat.f = `It is currently ${fahrenheit}° outside. A sweatshirt is recommended.`;
-        Sentences.shirtSweatshirtOrCoat.c = `It is currently ${celcius}° outside. A sweatshirt is recommended.`;
+        Sentences.shirtSweatshirtOrCoat.f = `It is currently ${fahrenheitInFormat} outside. A sweatshirt is recommended.`;
+        Sentences.shirtSweatshirtOrCoat.c = `It is currently ${celciusInFormat} outside. A sweatshirt is recommended.`;
       } else {
-        Sentences.shirtSweatshirtOrCoat.f = `It is currently ${fahrenheit}° outside. A coat is recommended.`;
-        Sentences.shirtSweatshirtOrCoat.c = `It is currently ${celcius}° outside. A coat is recommended.`;
+        Sentences.shirtSweatshirtOrCoat.f = `It is currently ${fahrenheitInFormat} outside. A coat is recommended.`;
+        Sentences.shirtSweatshirtOrCoat.c = `It is currently ${celciusInFormat} outside. A coat is recommended.`;
       }
     }
 
     if (sky === 'Clear') {
       Sentences.whatElse = 'The sky is clear. There is no need to bring anything else.';
-    } else if (sky === 'Cloudy') {
+    } else if (sky === 'Clouds') {
       Sentences.whatElse = 'The sky is cloudy, but there is no rain. There is no need to bring anything else.';
     } else if (sky === 'Drizzle') {
       Sentences.whatElse = 'It is drizzling outside. An umbrella may be necessary.';
@@ -83,7 +86,7 @@ export default (() => {
     } else if (sky === 'Snow') {
       Sentences.whatElse = 'It is snowing outside. It might be time to shovel the driveway.';
     } else {
-      Sentences.whatElse = 'The weather is weird right now. Be safe';
+      Sentences.whatElse = 'The weather is weird right now. Be safe.';
     }
 
     return Sentences;
