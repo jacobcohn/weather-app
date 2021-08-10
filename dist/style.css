@@ -1,6 +1,6 @@
 body {
   background: #FBFFFE;
-  color: #0A0A0F;
+  color: #FBFFFE;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -16,7 +16,7 @@ button {
   align-items: flex-start;
 }
 
-#weatherInformationDiv {
+#weatherInfoDiv {
   background: #0981D7;
   width: 600px;
   padding: 20px;

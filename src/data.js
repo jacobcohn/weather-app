@@ -11,6 +11,12 @@ export default (() => {
     return rawData;
   };
 
+  const firstLettersToUpperCase = (string) =>
+    string
+      .split(' ')
+      .map((word) => word[0].toUpperCase() + word.substring(1))
+      .join(' ');
+
   const fahrenheitToCelcius = (fahrenheit) => {
     const celciusNotRounded = ((fahrenheit - 32) * 5) / 9;
     const celciusRounded = Math.floor(celciusNotRounded * 100) / 100;
@@ -65,19 +71,19 @@ export default (() => {
     }
 
     if (sky === 'Clear') {
-      Sentences.extra = 'The sky is clear. There is no need to bring anything else.';
+      Sentences.whatElse = 'The sky is clear. There is no need to bring anything else.';
     } else if (sky === 'Cloudy') {
-      Sentences.extra = 'The sky is cloudy, but there is no rain. There is no need to bring anything else.';
+      Sentences.whatElse = 'The sky is cloudy, but there is no rain. There is no need to bring anything else.';
     } else if (sky === 'Drizzle') {
-      Sentences.extra = 'It is drizzling outside. An umbrella may be necessary.';
+      Sentences.whatElse = 'It is drizzling outside. An umbrella may be necessary.';
     } else if (sky === 'Rain') {
-      Sentences.extra = 'It is raining outside. An umbrella is recommended.';
+      Sentences.whatElse = 'It is raining outside. An umbrella is recommended.';
     } else if (sky === 'Thunderstorm') {
-      Sentences.extra = 'There is a thunderstorm outside. Beware of lightning.';
+      Sentences.whatElse = 'There is a thunderstorm outside. Beware of lightning.';
     } else if (sky === 'Snow') {
-      Sentences.extra = 'It is snowing outside. It might be time to shovel the driveway.';
+      Sentences.whatElse = 'It is snowing outside. It might be time to shovel the driveway.';
     } else {
-      Sentences.extra = 'The weather is weird right now. Be safe';
+      Sentences.whatElse = 'The weather is weird right now. Be safe';
     }
 
     return Sentences;
@@ -88,6 +94,7 @@ export default (() => {
 
     filteredData.city = rawData.name;
     filteredData.sky = rawData.weather[0].main;
+    filteredData.description = firstLettersToUpperCase(rawData.weather[0].description);
     filteredData.tempF = rawData.main.temp;
     filteredData.tempC = fahrenheitToCelcius(filteredData.tempF);
     filteredData.feelsLikeF = rawData.main.feels_like;

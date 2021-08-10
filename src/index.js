@@ -18,7 +18,11 @@ import dom from './dom';
       try {
         dom.displayWeather(await data.getWeather(newZipCode));
       } catch (error) {
-        dom.displayError();
+        if (submittedOnce) {
+          dom.displayError('Please Enter A Valid US Zip Code');
+        } else {
+          dom.displayError('Please Try Again Later. Weather App Is Not Currently Working.');
+        }
       }
     });
   };

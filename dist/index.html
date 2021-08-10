@@ -8,13 +8,53 @@
 </head>
 <body>
   <div id='container'>
-    <div id='weatherInformationDiv'>
+    <div id='weatherInfoDiv'>
       <div id='zipCodeFormDiv'>
         <form id='zipCodeForm'>
           <input id='zipCodeInput' type='number' placeholder='US Zip Code...' autocomplete='off'>
           <button id='zipCodeSubmitBtn' type='submit'>Search</button>
         </form>
-    </div>
+      </div>
+      <div id='mainInfoDiv'>
+        <div id='cityDiv'>
+          <p id='cityContent'>Chicago</p>
+        </div>
+        <div id='descriptionDiv'>
+          <p id='descriptionContent'>Broken Clouds</p>
+        </div>
+        <div id='tempDiv'>
+          <p id='tempContent'>78.95</p>
+        </div>
+        <div id='feelsLikeDiv'>
+          <p id='feelsLikeContent'>77.43</p>
+        </div>
+      </div>
+      <div id='allSentencesDiv'>
+        <div id='shortsOrPantsSentenceDiv' class='sentenceDiv'>
+          <div id='shortsOrPantsQuestionDiv' class='questionDiv'>
+            <p id='shortsOrPantsQuestionContent' class='questionContent'>Shorts or Pants?</p>
+          </div>
+          <div id='shortsOrPantsAnswerDiv' class='answerDiv'>
+            <p id='shortsOrPantsAnswerContent' class='answerContent'>It is currently 78.95° outside. Shorts are recommended.</p>
+          </div>
+        </div>
+        <div id='shirtSweatshirtOrCoatSentenceDiv' class='sentenceDiv'>
+          <div id='shirtSweatshirtOrCoatQuestionDiv' class='questionDiv'>
+            <p id='shirtSweatshirtOrCoatQuestionContent' class='questionContent'>Shirt, Sweatshirt, or Coat?</p>
+          </div>
+          <div id='shirtSweatshirtOrCoatAnswerDiv' class='answerDiv'>
+            <p id='shirtSweatshirtOrCoatAnswerContent' class='answerContent'>It is currently 78.95° outside. A shirt is recommended.</p>
+          </div>
+        </div>
+        <div id='whatElseSentenceDiv' class='sentenceDiv'>
+          <div id='whatElseQuestionDiv' class='questionDiv'>
+            <p id='whatElseQuestionContent' class='questionContent'>What Else?</p>
+          </div>
+          <div id='whatElseAnswerDiv' class='answerDiv'>
+            <p id='whatElseAnswerContent' class='answerContent'>The sky is clear. There is no need to bring anything else.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </body>

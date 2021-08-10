@@ -3,8 +3,8 @@ export default (() => {
     console.log(data);
   };
 
-  const displayError = () => {
-    console.log('Please Enter A Valid US Zip Code.');
+  const displayError = (message) => {
+    console.log(message);
   };
 
   return { displayWeather, displayError };
